@@ -1,0 +1,2 @@
+class Dive < ApplicationRecord
+end

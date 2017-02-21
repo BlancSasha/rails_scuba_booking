@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  belongs_to :user
+  belongs_to :user # Renvoie vers les clients (pas le teacher)
   belongs_to :dive
   validate :quantity_cannot_be_greater_than_capacity
   # valider que quantity <= self.dive.capacity ? utiliser callback ?

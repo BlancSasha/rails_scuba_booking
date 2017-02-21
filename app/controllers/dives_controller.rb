@@ -1,6 +1,6 @@
 class DivesController < ApplicationController
   def index
-    @dives = Dive.where()
+    @dives = Dive.all
   end
 
   def show
@@ -35,10 +35,11 @@ class DivesController < ApplicationController
 
   def destroy
     @dive = Dive.find(params[:id])
-    if @dive.destroy
-      redirect_to dive_path(@dive)
-    end
+    # redirect_to profile_dives_path
+    ## Rediriger vers la index de Dives namespacé dans #profile
   end
+
+  protected
 
   def dive_params
     params.require(:dive).permit(:location, :capacity, :price, :depth_required, :description)

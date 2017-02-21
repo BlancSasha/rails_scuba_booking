@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :bio, uniqueness: true, if: :teacher
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_attachment :photo
 
   protected
 

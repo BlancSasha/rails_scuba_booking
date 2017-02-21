@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :level, inclusion: { in: (1..5) }
   validate :user_can_be_a_teacher
+  validates :bio, uniqueness: true, if: :teacher
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

@@ -1,6 +1,6 @@
 class DivesController < ApplicationController
   def index
-    @dives = Dive.all
+    @dives = Dive.where()
   end
 
   def show
@@ -15,6 +15,8 @@ class DivesController < ApplicationController
     @dive = Dive.new(dive_params)
     if @dive.save
       redirect_to dive_path(@dive)
+    else
+      render :new
     end
   end
 
@@ -24,12 +26,18 @@ class DivesController < ApplicationController
 
   def update
     @dive = Dive.find(params[:id])
-    @dive.update(dive_params)
+    if @dive.update(dive_params)
+      redirect_to dive_path(@dive)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @dive = Dive.find(params[:id])
-    @dive.destroy
+    if @dive.destroy
+      redirect_to dive_path(@dive)
+    end
   end
 
   def dive_params

@@ -7,7 +7,7 @@ class DivesController < ApplicationController
       if !params[:capacity].nil?
     @dives = @dives.where("price <= ?", params[:price]) \
       if !params[:price].nil?
-    @dives = @dives.where("depth_required <= ?", params[:depth_required]) \
+    @dives = @dives.where("depth_required <= ?", params[:max_depth]) \
       if !params[:depth_required].nil?
   end
 

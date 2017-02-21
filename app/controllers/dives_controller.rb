@@ -9,6 +9,7 @@ class DivesController < ApplicationController
       if !params[:price].nil?
     @dives = @dives.where("depth_required <= ?", params[:depth_required]) \
       if !params[:depth_required].nil?
+  end
 
   def show
     @dive = Dive.find(params[:id])

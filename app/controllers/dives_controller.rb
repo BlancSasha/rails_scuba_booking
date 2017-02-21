@@ -19,4 +19,8 @@ class DivesController < ApplicationController
 
   def destroy
   end
+
+  def dive_params
+    params.require(:dive).permit(:description, :photo)
+  end
 end

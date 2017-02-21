@@ -21,6 +21,7 @@ class DivesController < ApplicationController
   end
 
   def dive_params
-    params.require(:dive).permit(:description, :photo)
+    params.require(:dive).permit(:capacity, :price, :depth_required, :description, photos: [])
   end
 end
+

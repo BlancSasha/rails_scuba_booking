@@ -1,7 +1,14 @@
 class DivesController < ApplicationController
   def index
     @dives = Dive.all
-  end
+    @dives = @dives.find_by_location(params[:location])
+      if !params[:location].nil?
+    @dives = @dives.where("capacity <= ?", params[:capacity])
+      if !params[:capacity].nil?
+    @dives = @dives.where("price <= ?", params[:price])
+      if !params[:price].nil?
+    @dives = @dives.where("depth_required <= ?", params[:depth_required])
+      if !params[:depth_required].nil?
 
   def show
     @dive = Dive.find(params[:id])
@@ -42,6 +49,14 @@ class DivesController < ApplicationController
   protected
 
   def dive_params
-    params.require(:dive).permit(:location, :capacity, :price, :depth_required, :description)
+    params
+      .require(:dive)
+      .permit(
+        :location,
+        :capacity,
+        :price,
+        :depth_required,
+        :description
+      )
   end
 end

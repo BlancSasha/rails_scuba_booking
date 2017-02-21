@@ -3,7 +3,7 @@ class DivesController < ApplicationController
     @dives = Dive.all
     @dives = @dives.find_by_location(params[:location]) \
       if !params[:location].nil?
-    @dives = @dives.where("capacity <= ?", params[:capacity]) \
+    @dives = @dives.where("capacity >= ?", params[:capacity]) \
       if !params[:capacity].nil?
     @dives = @dives.where("price <= ?", params[:price]) \
       if !params[:price].nil?

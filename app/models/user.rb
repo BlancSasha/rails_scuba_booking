@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :bookings, dependent: :destroy
   has_many :dives, dependent: :destroy
-  validates :name, presence: true
+  validates :name, :max_depth, presence: true
   validates :level, inclusion: { in: (1..5) }
   validate :user_can_be_a_teacher
-  validates :bio, uniqueness: true, if: :teacher
+  validates :bio, presence: true, if: :teacher
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_attachment :photo

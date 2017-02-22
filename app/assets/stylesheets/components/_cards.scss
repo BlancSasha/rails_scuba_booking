@@ -6,6 +6,8 @@
   position: relative;
   border-radius: 5px;
   margin-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 7px;
 }
 
 .container {
@@ -17,6 +19,14 @@
   right: 10px;
   top: 10px;
 }
+
+
+.card-user img{
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+}
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -55,5 +65,5 @@
 }
 
 .card p {
-  padding-top:20px;
+  padding-top:10px;
 }

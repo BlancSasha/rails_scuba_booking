@@ -1,18 +1,23 @@
 <h1>Dives index</h1>
 <h2> Selectionner votre plongée</h2>
-<div class="container text-center padded features">
+<div class="container padded features">
   <div class="row">
   <% @dives.each do |dive| %>
     <div class="col-xs-12 col-sm-6 col-md-4 card">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=dive.photo%>);">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=cl_image_path(dive.photos.first.path)%>;">
         <h3><%= dive.location %></h3>
-        <p><%= dive.capacity %> </p>
-        <p><%= dive.description %> </p>
-        <p><%= dive.depth_required %> </p>
-        <p><%= dive.price %> </p>
-        <p><%= dive.user %> </p>
+        <p>Capacity: <%= dive.capacity %> </p>
+        <p>Depth required: <%= dive.depth_required %> </p>
+        <p><%= dive.price %> € </p>
+        <div class="card-user">
+          <%= cl_image_tag dive.user.photo.path %>
+        </div>
+
         <%= link_to "", dive_path(dive), class:"card-link"  %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
+
+

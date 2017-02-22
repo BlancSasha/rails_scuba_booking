@@ -20,6 +20,7 @@ gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem "geocoder"
 
 gem 'faker', '~> 1.7.3'
 

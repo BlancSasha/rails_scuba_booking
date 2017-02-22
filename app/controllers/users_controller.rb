@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update_teacher_status
-    if teacher_params[:bio] != ""
+    if teacher_params[:bio] != "" && teacher_params[:bio] != nil
       @user.bio = teacher_params[:bio]
       @user.teacher = !@user.teacher
       if @user.save

@@ -1,2 +1,9 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+<% @bookings.each do |booking| %>
+  <h2><%= booking.dive.location %></h2>
+  <p><%= booking.quantity %> peoples</p>
+  <p>Price: <%= booking.quantity * booking.dive.price %></p>
+
+<% end %>

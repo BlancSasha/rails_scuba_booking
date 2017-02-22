@@ -6,8 +6,8 @@
     <div class="col-xs-12 col-sm-6 col-md-4 card">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=cl_image_path(dive.photos.first.path)%>;">
         <h3><%= dive.location %></h3>
-        <p>Capacity: <%= dive.capacity %> </p>
-        <p>Depth required: <%= dive.depth_required %> </p>
+        <p><i class="fa fa-user" aria-hidden="true"></i> <%= dive.capacity %> </p>
+        <p>Depth required: <%= dive.depth_required %>meters </p>
         <p><%= dive.price %> € </p>
         <div class="card-user">
           <%= cl_image_tag dive.user.photo.path %>

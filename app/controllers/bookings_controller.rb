@@ -6,12 +6,13 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  # def show
-  # end
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
-  # def new
-  #   @booking = Booking.new
-  # end
+  def new
+    @booking = Booking.new
+  end
 
   def create
     @booking = booking.new(booking_params)
@@ -24,9 +25,11 @@ class BookingsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
+
   end
 
   def destroy
@@ -45,7 +48,11 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:quantity, :dive, :user, :status)
+    params
+      .require(:booking)
+      .permit(:quantity, :dive, :user, :status)
     # rating ? & review ?
+    # Pas pour la création et la modification
+    # avant qu'ils aient fait leur plongée
   end
 end

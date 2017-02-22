@@ -11,6 +11,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
+
       <div class="item active">
         <img src=<%=cl_image_path("talia-cohen-1811_hbtyqq.jpg")%> >
       </div>
@@ -26,6 +27,38 @@
       <div class="item">
         <img src=<%=cl_image_path("scuba-diver_j8etoc.jpg", :height=>1728, :width=>2716, :crop=>"mpad")%> >
       </div>
+
+      <div class="row">
+        <div class="form form-group">
+            <%= form_tag("/dives", method: "get") do %>
+              <div class="col-xs-12 col-md-offset-2 col-md-2">
+              <%= label_tag(:location, "location")%>
+              <%= text_field_tag(:location, nil, class: 'form-control', placeholder: 'location') %>
+              </div>
+
+              <div class="col-xs-12 col-md-2">
+              <%= label_tag(:capacity, "capacity") %>
+              <%= text_field_tag(:capacity, nil, class: 'form-control', placeholder: 'capacity') %>
+              </div>
+
+              <div class="col-xs-12 col-md-2">
+              <%= label_tag(:price, "price") %>
+              <%= text_field_tag(:price, nil, class: 'form-control', placeholder: 'price') %>
+              </div>
+
+              <div class="col-xs-12 col-md-2">
+              <%= label_tag(:depth_required, "depth required") %>
+              <%= text_field_tag(:depth_required, nil, class: 'form-control', placeholder: 'depth required') %>
+              </div>
+
+              <div class="col-xs-12 col-md-2">
+              <%= submit_tag 'search', class: 'btn btn-default' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Left and right controls -->

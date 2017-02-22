@@ -4,3 +4,15 @@
     margin: auto;
   }
 
+  .carousel {
+    position: absolute;
+  }
+
+  .carousel .form {
+    position: relative;
+    bottom: 100px;
+  }
+
+  .form .btn {
+    margin-top: 27px;
+  }

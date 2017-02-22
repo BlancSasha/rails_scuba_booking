@@ -1,4 +1,5 @@
 class DivesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @dives = Dive.all
     @dives = @dives.find_by_location(params[:location]) \

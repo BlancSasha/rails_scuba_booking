@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update_teacher_status
     if teacher_params[:bio] != "" && teacher_params[:bio] != nil
       @user.bio = teacher_params[:bio]
-      @user.teacher = !@user.teacher
+      @user.teacher = true
       if @user.save
         redirect_to @user
       else

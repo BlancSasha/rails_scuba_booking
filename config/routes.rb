@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   patch '/users/:id', to: 'users#update_teacher_status', as: 'teacher'
 
-  resources :users, only: [:show, :new, :create, :destroy] do
+  resources :users, only: [:show] do
     resources :bookings
   end
 

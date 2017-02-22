@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :users, except: :index do
+  patch '/users/:id', to: 'users#update_teacher_status', as: 'teacher'
+
+  resources :users, only: [:show, :new, :create, :destroy] do
     resources :bookings
   end
 

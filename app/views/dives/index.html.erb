@@ -1,2 +1,19 @@
-<h1>Dives#index</h1>
-<p>Find me in app/views/dives/index.html.erb</p>
+<h1>Dives index</h1>
+
+<div class="container text-center padded features">
+  <div class="row">
+  <% @dives.each do |dive| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 card">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=dive.photo%>);">
+        <h3><%= dive.location %></h3>
+        <p><%= dive.capacity %> </p>
+        <p><%= dive.description %> </p>
+        <p><%= dive.depth_required %> </p>
+        <p><%= dive.price %> </p>
+        <%= link_to "", dive_path(dive), class:"card-link"  %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

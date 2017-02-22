@@ -31,7 +31,7 @@ end
 
 5.times do
   name = Faker::Name.name
-  level = [1, 2, 3].sample
+  level = (1..5).to_a.sample
   max_depth = (1..40).to_a.sample
   photo_url = Faker::LoremPixel.image
   bio = Faker::HarryPotter.quote

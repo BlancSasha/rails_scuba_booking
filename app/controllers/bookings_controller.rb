@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_user, only: [:index, :create, :destroy]
 
   def index
+    @bookings = Booking.all
   end
 
   # def show
@@ -44,7 +45,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:quantity, :dive_id, :user_id, :status)
+    params.require(:booking).permit(:quantity, :dive, :user, :status)
     # rating ? & review ?
   end
 end

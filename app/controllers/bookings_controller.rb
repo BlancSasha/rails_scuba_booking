@@ -1,13 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index, :create, :destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -17,7 +15,7 @@ class BookingsController < ApplicationController
   def create
     @booking = booking.new(booking_params)
     if @booking.save
-      redirect_to user_bookings_path(@user)
+      redirect_to user_bookings_path(@current_user)
     else
       @modal_open = true
       render dive_path(@booking.dive)
@@ -34,14 +32,10 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to @user.bookings, notice: 'Booking was successfully canceled.'
+    redirect_to user_bookings_path, notice: 'Booking was successfully canceled.'
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def set_booking
     @booking = Booking.find(params[:id])

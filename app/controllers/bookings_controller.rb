@@ -1,14 +1,25 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :create, :destroy]
+
   def index
   end
 
-  def show
-  end
+  # def show
+  # end
 
-  def new
-  end
+  # def new
+  #   @booking = Booking.new
+  # end
 
   def create
+    @booking = booking.new(booking_params)
+    if @booking.save
+      redirect_to user_bookings_path(@user)
+    else
+      @modal_open = true
+      render dive_path(@booking.dive)
+    end
   end
 
   def edit
@@ -18,5 +29,22 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to @user.bookings, notice: 'Booking was successfully canceled.'
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:quantity, :dive_id, :user_id, :status)
+    # rating ? & review ?
   end
 end

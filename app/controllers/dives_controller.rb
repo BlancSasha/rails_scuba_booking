@@ -26,6 +26,7 @@ class DivesController < ApplicationController
 
   def show
     @dive = Dive.find(params[:id])
+    @booking = Booking.new
   end
 
   def new

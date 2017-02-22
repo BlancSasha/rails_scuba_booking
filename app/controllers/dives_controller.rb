@@ -3,17 +3,25 @@ class DivesController < ApplicationController
   def index
     @dives = Dive.all
 
-    filter = @dives.find_by_location(params[:location])
-    @dives = filter if filter != nil && params[:location] != nil
+    filter = nil
+    filter = @dives.find_by_location(params[:location]) \
+      if params[:location] != nil && params[:location] != ""
+    @dives = filter if filter != nil
 
-    filter = @dives.where("capacity >= ?", params[:capacity])
-    @dives = filter if filter != nil && params[:capacity] != nil
+    filter = nil
+    filter = @dives.where("capacity >= ?", params[:capacity]) \
+      if params[:capacity] != nil && params[:capacity] != ""
+    @dives = filter if filter != nil
 
-    filter = @dives.where("price <= ?", params[:price])
-    @dives = filter if filter != nil && params[:price] != nil
+    filter = nil
+    filter = @dives.where("price <= ?", params[:price]) \
+      if params[:price] != nil && params[:price] != ""
+    @dives = filter if filter != nil
 
-    filter = @dives.where("depth_required <= ?", params[:max_depth])
-    @dives = filter if filter != nil && params[:max_depth] != nil
+    filter = nil
+    filter = @dives.where("depth_required <= ?", params[:max_depth]) \
+      if params[:max_depth] != nil && params[:max_depth] != ""
+    @dives = filter if filter != nil
   end
 
   def show

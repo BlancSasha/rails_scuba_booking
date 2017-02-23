@@ -13,10 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    binding.pry
     @booking = Booking.new(booking_params)
     @booking.user = User.find(params[:user_id])
-    binding.pry
     if @booking.save
       redirect_to user_bookings_path
     else
@@ -25,10 +23,7 @@ class BookingsController < ApplicationController
     end
   end
 
-####### Pas fini d'implémenter
-  # def edit
 
-  # end
 
   # def update
   #   @booking.update(booking_params)

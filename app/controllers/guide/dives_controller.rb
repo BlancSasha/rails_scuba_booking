@@ -1,4 +1,6 @@
 class Guide::DivesController < ApplicationController
+  before_action :confirm_guide_authentification
+
   def index
     # Let's anticipate on next week (with login)
     @dives = current_user.dives
@@ -50,5 +52,11 @@ class Guide::DivesController < ApplicationController
         :description,
         photos: []
       )
+  end
+
+  def confirm_guide_authentification
+    if current_user == nil || current_user.teacher == false
+      redirect_to root_path, alert: "You don't have access to this part of the app"
+    end
   end
 end

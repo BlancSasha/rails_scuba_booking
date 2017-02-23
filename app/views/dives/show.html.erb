@@ -9,7 +9,12 @@
       <h4>A propos de cette plongé</h4>
       <p> <%= @dive.description %> </p>
       <a href="#">contacter le plongeur</a>
-      <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>
+
+      <% if user_signed_in? %>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Confirm your dive"), new_user_session_path, class: "btn btn-primary" %>
+      <% end %>
 
     </div>
   </div>
@@ -75,4 +80,7 @@
   </div>
 </div>
 
-<%= render 'shared/booking-modal' %>
+<% if user_signed_in? %>
+  <%= render 'shared/booking-modal' %>
+<% end %>
+

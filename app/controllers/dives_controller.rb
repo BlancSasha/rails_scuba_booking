@@ -37,6 +37,5 @@ class DivesController < ApplicationController
     @dive = Dive.find(params[:id])
     @booking = Booking.new
   end
-
 end
 

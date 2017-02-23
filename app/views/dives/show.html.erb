@@ -9,7 +9,7 @@
       <h4>A propos de cette plongé</h4>
       <p> <%= @dive.description %> </p>
       <a href="#">contacter le plongeur</a>
-      <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>
 
     </div>
   </div>
@@ -75,4 +75,7 @@
   </div>
 </div>
 
-<%= render 'shared/booking-modal' %>
+<% if user_signed_in? %>
+  <%= render 'shared/booking-modal' %>
+<% end %>
+

@@ -1,30 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path('banner3.jpg') %>');">
   <div class="banner-content">
-  <h3>Book your dive</h3>
-  <div class="row">
-  <div class="form form-group">
-      <%= form_tag("/dives", method: "get") do %>
-        <div class="col-xs-12 col-md-offset-2 col-md-2">
-        <%= text_field_tag(:location, nil, class: 'form-control', placeholder: 'location') %>
-        </div>
-
-        <div class="col-xs-12 col-md-2">
-        <%= text_field_tag(:capacity, nil, class: 'form-control', placeholder: 'capacity') %>
-        </div>
-
-        <div class="col-xs-12 col-md-2">
-        <%= text_field_tag(:price, nil, class: 'form-control', placeholder: 'price') %>
-        </div>
-
-        <div class="col-xs-12 col-md-2">
-        <%= text_field_tag(:max_depth, nil, class: 'form-control', placeholder: 'max depth') %>
-        </div>
-
-        <div class="col-xs-12 col-md-2">
-        <%= submit_tag 'search', class: 'btn btn-default' %>
-        </div>
-      <% end %>
+    <h3>Book your dive</h3>
+    <div class="row">
+      <%= render 'shared/search-bar' %>
     </div>
-  </div>
   </div>
 </div>

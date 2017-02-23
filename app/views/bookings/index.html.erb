@@ -3,16 +3,18 @@
 <% @bookings.each do |booking| %>
   <div class="container">
     <div class="row">
-      <p>You book with <%= booking.user.name %></p>
-      <p><%= cl_image_tag booking.user.photo.path, class: 'avatar' %></p>
-      <p><%= link_to "edit", edit_user_booking_path(current_user, booking) %></p>
-      <p><%= link_to "cancel", user_booking_path(current_user, booking), method: 'delete' %></p>
+      <div class="card" style="background-color: #eae8e8">
+        <ul class="list-inline">
+          <li><p>You book with <%= booking.user.name %></p></li>
+          <li><p><%= cl_image_tag booking.user.photo.path, class: 'avatar' %></p></li>
+          <li><p><%= link_to "edit", edit_user_booking_path(current_user, booking) %></p></li>
+          <li><p><%= link_to "cancel", user_booking_path(current_user, booking), method: 'delete' %></p></li>
+        </ul>
+        <p>Location: <%= booking.dive.location %></p>
+        <p>quantity: <%= booking.quantity %> peoples</p>
+        <p>Price: <%= booking.quantity * booking.dive.price %></p>
+        <p>description: <%= booking.dive.description %> </p>
+      </div>
     </div>
-  </div>
-
-
-  <p><%= booking.dive.location %></p>
-  <p><%= booking.quantity %> peoples</p>
-  <p>Price: <%= booking.quantity * booking.dive.price %></p>
-  <p><%= booking.user.bio %></p>
+    </div>
 <% end %>

@@ -5,5 +5,6 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require_tree .
-
+//= require underscore
+//= require gmaps/google
 

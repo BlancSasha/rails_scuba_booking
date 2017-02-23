@@ -49,7 +49,7 @@ end
 end
 
 10.times do
-  location = Faker::Address.city + " " + Faker::Address.country
+  location = ["Marseille", "Nice", "Montpellier", "Saint-tropez", "Biaritz"].sample
   capacity = (1..10).to_a.sample
   price = (1..200).to_a.sample
   depth_required = (1..40).to_a.sample

@@ -1,16 +1,23 @@
-<h1> Show User</h1>
 <div class="navbar navbar-inverse navbar-fixed-left">
-  <a class="navbar-brand" href="#">Brand</a>
+  <a class="navbar-brand" href="#"><%= cl_image_tag @user.photo.path, class: 'avatar' %></a>
   <ul class="nav navbar-nav">
-   <li><a href="#">Link2</a></li>
-   <li><a href="#">Link3</a></li>
-   <li><a href="#">Link4</a></li>
-   <li><a href="#">Link5</a></li>
+   <li><a href="#">Bio</a></li>
+   <li><a href="#">Coordonate</a></li>
+   <li><a href="#">Level</a></li>
+   <li><a href="#">max depth</a></li>
   </ul>
 </div>
 <div class="container">
  <div class="row">
-   <h2>Your profile</h2>
+   <h1>Your profile</h1>
+   <h2>Bio</h2>
+   <p><%= @user.bio %></p>
+   <h2>Coordonate</h2>
+   <p><%= @user.email %></p>
+   <h2>Level</h2>
+   <p><%= @user.level %></p>
+   <h2>Max depth</h2>
+   <p><%= @user.max_depth %></p>
  </div>
 </div>
 

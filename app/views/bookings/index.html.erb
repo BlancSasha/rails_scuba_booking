@@ -6,4 +6,10 @@
   <p><%= booking.quantity %> peoples</p>
   <p>Price: <%= booking.quantity * booking.dive.price %></p>
 
+  <p><%= cl_image_tag booking.user.photo.path %></p>
+  <p><%= booking.user.name %></p>
+  <p><%= booking.user.bio %></p>
+  <p><%= link_to "edit", edit_user_path(booking) %></p>
+  <p><%= link_to "delete", user_booking_path(booking) %></p>
+
 <% end %>

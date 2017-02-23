@@ -1,2 +1,15 @@
-<h1>Dives#new</h1>
-<p>Find me in app/views/dives/new.html.erb</p>
+<h1>Create a dive</h1>
+
+<%= simple_form_for @dive do |f| %>
+  <%= f.input :location %>
+  <%= f.input :capacity %>
+  <%= f.input :price %>
+  <%= f.input :depth_required %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :attachinary %>
+
+  <%= f.submit "Add a dive", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back", guide_dives_path %>
+

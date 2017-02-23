@@ -1,23 +1,35 @@
 <div class="container">
 
   <div class="row text-center">
-    <%= cl_image_tag @dive.user.photo.path %>
+    <%= cl_image_tag @dive.photos.first.path, :height=>300, :width=>300, :crop=>"imagga_scale", :sign_url=>true %>
+    <%= cl_image_tag @dive.photos.last.path, :height=>300, :width=>300, :crop=>"imagga_scale", :sign_url=>true %>
   </div>
 
   <div class="row description">
     <div class="col-xs-12 col-md-offset-3 col-md-6">
       <h4>A propos de cette plongé</h4>
       <p> <%= @dive.description %> </p>
-      <a href="#">contacter le plongeur</a>
 
-      <% if user_signed_in? %>
+      <% if current_user == @dive.user%>
+      <%= link_to t(".sign_in", default: "Edit your dive"), edit_guide_dive_path, class: "btn btn-primary" %>
+
+      <% elsif user_signed_in? %>
         <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>
+
       <% else %>
         <%= link_to t(".sign_in", default: "Confirm your dive"), new_user_session_path, class: "btn btn-primary" %>
       <% end %>
 
     </div>
   </div>
+
+
+
+
+
+
+
+
 
   <div class="col-xs-12 col-md-offset-3 col-md-6">
     <hr>

@@ -12,6 +12,7 @@ class Guide::DivesController < ApplicationController
 
   def create
     @dive = Dive.new(dive_params)
+    @dive.user = current_user
     if @dive.save
       redirect_to dive_path(@dive)
     else

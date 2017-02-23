@@ -2,13 +2,7 @@ class DivesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
 
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
-      marker.lat flat.latitude
-      marker.lng flat.longitude
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-    end
     @dives = Dive.all
 
     filter = nil
@@ -30,6 +24,13 @@ class DivesController < ApplicationController
     filter = @dives.where("depth_required <= ?", params[:max_depth]) \
       if params[:max_depth] != nil && params[:max_depth] != ""
     @dives = filter if filter != nil
+
+    @dives = @dives.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@dives) do |dive, marker|
+      marker.lat dive.latitude
+      marker.lng dive.longitude
+    end
   end
 
   def show

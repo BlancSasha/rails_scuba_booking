@@ -9,8 +9,8 @@
       <li><a href="#">Max depth</a></li>
      </ul>
    </li>
-   <li><a href="#">Booking</a></li>
-   <li><a href="#">Dives</a></li>
+   <li><%= link_to "Booking", user_bookings_path(current_user) %>></li>
+   <li><%= link_to "Dives", dive_path(current_user) %></li>
   </ul>
 </div>
 <div class="container">

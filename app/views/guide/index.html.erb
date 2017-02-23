@@ -1,0 +1,11 @@
+<h1>The list of my dives</h1>
+<% @dives.each do |dive| %>
+  <h2><%= dive.description %></h2>
+  <p><%= dive.price %> €</p>
+  <p><i class="fa fa-user" aria-hidden="true"></i><%= dive.capacity %></p>
+  <p><%= dive.location %></p>
+  <p><%= dive.capacity %></p>
+  <p><%= dive.depth_required %></p>
+  <p><%= dive.location %></p>
+  <p>Guide: <%= dive.user %></p>
+<% end %>

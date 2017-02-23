@@ -56,6 +56,7 @@ class Guide::DivesController < ApplicationController
 
   def confirm_guide_authentification
     if current_user == nil || current_user.teacher == false
-
+      redirect_to root_path, alert: "You don't have access to this part of the app"
+    end
   end
 end

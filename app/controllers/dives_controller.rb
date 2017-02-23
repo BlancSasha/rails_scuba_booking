@@ -6,7 +6,7 @@ class DivesController < ApplicationController
     @dives = Dive.all
 
     filter = nil
-    filter = @dives.find_by_location(params[:location]) \
+    filter = Dive.near(params[:location], 10) \
       if params[:location] != nil && params[:location] != ""
     @dives = filter if filter != nil
 

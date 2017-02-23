@@ -11,7 +11,7 @@
       <p> <%= @dive.description %> </p>
 
       <% if current_user == @dive.user%>
-      <%= link_to t(".sign_in", default: "Edit your dive"), edit_dive_path, class: "btn btn-primary" %>
+      <%= link_to t(".sign_in", default: "Edit your dive"), edit_guide_dive_path, class: "btn btn-primary" %>
 
       <% elsif user_signed_in? %>
         <button class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">Confirm your dive</button>

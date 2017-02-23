@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update_teacher_status', as: 'teacher'
 
   resources :users, only: [:show] do
-    resources :bookings
+    resources :bookings, except: [:new, :show]
   end
 
-  resources :dives
+  resources :dives, only: [:index, :show]
 
   namespace :guide do
-    resources :dives, only: [:index]
+    resources :dives, except: [:show]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

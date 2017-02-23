@@ -16,25 +16,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to user_bookings_path
+      redirect_to user_bookings_path, notice: "Your booking has been successfully created"
     else
       @modal_open = true
-      render dive_path(@booking.dive)
+      render dive_path(@booking.dive) alert: "It didn't work"
     end
   end
 
-
-
-  # def update
-  #   @booking.update(booking_params)
-  #   if @booking.update(booking_params)
-  #     redirect_to user_bookings_path(current_user)
-  #   else
-  #     render edit_user_booking(@booking)
-  #   end
-  # end
-
-  #######
+  def update
+    if @booking.update(booking_params)
+      redirect_to user_bookings_path(current_user), notice: "Your booking has been successfully modified"
+    else
+      render user_bookings_path(current_user), alert: "Your edit didn't work"
+    end
+  end
 
   def destroy
     @booking.destroy

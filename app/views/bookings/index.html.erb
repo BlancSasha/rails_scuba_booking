@@ -1,9 +1,20 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<h1>Your bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <h2><%= booking.dive.location %></h2>
-  <p><%= booking.quantity %> peoples</p>
-  <p>Price: <%= booking.quantity * booking.dive.price %></p>
-
+  <div class="container">
+    <div class="row">
+      <div class="card" style="background-color: #eae8e8">
+        <ul class="list-inline">
+          <li><p>You book with <%= booking.user.name %></p></li>
+          <li><p><%= cl_image_tag booking.user.photo.path, class: 'avatar' %></p></li>
+          <li><p><%= link_to "edit", edit_user_booking_path(current_user, booking) %></p></li>
+          <li><p><%= link_to "cancel", user_booking_path(current_user, booking), method: 'delete' %></p></li>
+        </ul>
+        <p>Location: <%= booking.dive.location %></p>
+        <p>quantity: <%= booking.quantity %> peoples</p>
+        <p>Price: <%= booking.quantity * booking.dive.price %></p>
+        <p>description: <%= booking.dive.description %> </p>
+      </div>
+    </div>
+    </div>
 <% end %>

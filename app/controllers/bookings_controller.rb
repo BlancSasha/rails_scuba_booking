@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = booking.new(booking_params)
-
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
     if @booking.save
       redirect_to user_bookings_path
     else
@@ -23,10 +23,7 @@ class BookingsController < ApplicationController
     end
   end
 
-####### Pas fini d'implémenter
-  # def edit
 
-  # end
 
   # def update
   #   @booking.update(booking_params)
@@ -53,7 +50,7 @@ class BookingsController < ApplicationController
   def booking_params
     params
       .require(:booking)
-      .permit(:quantity, :dive, :user, :status)
+      .permit(:quantity, :dive_id, :status)
     # rating ? & review ?
     # Pas pour la création et la modification
     # avant qu'ils aient fait leur plongée

@@ -11,6 +11,7 @@
           <%= f.error_notification %>
           <div class="form-inputs">
             <%= f.input :quantity, collection: (1..@dive.capacity) %>
+            <%= f.hidden_field :dive_id, value: @dive.id  %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Confirm your book" %>

@@ -3,4 +3,12 @@ class Guide::DivesController < ApplicationController
     # Let's anticipate on next week (with login)
     @dives = current_user.dives
   end
+
+  def new
+
+  end
+
+  def create
+
+  end
 end

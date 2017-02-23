@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :dives
+
+  namespace :guide do
+    resources :dives, only: [:index]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Attachinary::Engine => "/attachinary"
 end

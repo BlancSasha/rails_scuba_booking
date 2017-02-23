@@ -14,9 +14,9 @@
         <i class="fa fa-search"></i>
       </button>
     </form> -->
-    <% if user_signed_in? && current_user.teacher != true %>
+    <% if user_signed_in? && current_user.teacher != true && current_user.level >= 4%>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-        Become a teacher
+        Become a guide
       </button>
     <% end %>
 

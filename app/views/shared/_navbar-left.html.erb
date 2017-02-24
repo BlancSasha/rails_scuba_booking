@@ -1,35 +1,7 @@
 <div class="navbar navbar-inverse navbar-fixed-left">
   <ul class="nav navbar-nav">
-    <li><%= link_to "Profil", user_path(current_user) %>></li>
-    <li><%= link_to "Booking", user_bookings_path(current_user) %>></li>
+    <li><%= link_to "Profil", user_path(current_user) %></li>
+    <li><%= link_to "Booking", user_bookings_path(current_user) %></li>
     <li><%= link_to "Dives", guide_dives_path %></li>
   </ul>
 </div>
-
-
-<div class="content text-center">
-  <ul class="profil-container list-unstyled">
-    <li>
-      <%= cl_image_tag @user.photo.path, class: 'profil-avatar' %>
-    </li>
-    <li><h3><strong>My profile</strong> </h3></li><br>
-    <li>
-      <h4><strong>My Biography:</strong> </h4>
-      <p>Hello, I'm <%=current_user.name%>. I have my <strong> level <%=current_user.level%></strong> and I can dive up to <strong><%=current_user.max_depth%> meters</strong>.<br>
-      A little more details about me :<%= @user.bio %></p><br>
-    </li>
-    <li>
-      <h4><strong> My E-mail: </strong> </h4>
-      <p><%= @user.email %></p><br>
-    </li>
-    <li>
-    <% if current_user.bookings.last.present? %>
-      <h4><strong> My last booking</strong>  in <%= current_user.bookings.last.dive.location%> : </h4>
-      <%= cl_image_tag current_user.bookings.last.dive.photos.first.path, class: 'dive-photo' %>
-    <% else %>
-       <h4><strong> You never book any dives</strong></h4>
-    <% end %>
-    </li>
-  </ul>
-</div>
-

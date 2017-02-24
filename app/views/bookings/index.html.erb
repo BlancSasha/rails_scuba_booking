@@ -5,7 +5,9 @@
 <% @bookings.each do |booking| %>
   <div class="container">
     <div class="row">
-      <div class="card" style="background-color: #eae8e8">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path booking.dive.photos.first.path %>;">
+
+
         <ul class="list-inline">
           <li><p>You book with <%= booking.dive.user.name %></p></li>
           <li><p><%= cl_image_tag booking.user.photo.path, class: 'avatar' %></p></li>

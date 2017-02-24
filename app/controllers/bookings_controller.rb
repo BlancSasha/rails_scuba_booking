@@ -29,6 +29,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  # def create
+  #     # [...]
+  #     if @review.save
+  #       respond_to do |format|
+  #         format.html { redirect_to restaurant_path(@restaurant) }
+  #         format.js  # <-- will render `app/views/reviews/create.js.erb`
+  #       end
+  #     else
+  #       respond_to do |format|
+  #         format.html { render 'restaurants/show' }
+  #         format.js  # <-- idem
+  #       end
+  #     end
+  #   end
+
   def destroy
     @booking.destroy
     redirect_to user_bookings_path, notice: 'Booking was successfully canceled.'
@@ -43,7 +58,11 @@ class BookingsController < ApplicationController
   def booking_params
     params
       .require(:booking)
+<<<<<<< HEAD
+      .permit(:quantity, :dive_id, :review, :rating, :status)
+=======
       .permit(:quantity, :dive_id, :status, :date)
+>>>>>>> master
     # rating ? & review ?
     # Pas pour la création et la modification
     # avant qu'ils aient fait leur plongée

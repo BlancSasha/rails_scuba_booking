@@ -1,0 +1,36 @@
+.card-review {
+  background-color: #ccc;
+  border-radius: 5px;
+  position: relative;
+  height: 150px;
+}
+
+.card-review .avatar-large {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 0 10px 10px 0;
+}
+
+.card-review .list-inline .fa {
+  margin: 0;
+}
+
+.card-review .rating {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+.card-review .content {
+  position: absolute;
+  top: 10px;
+  margin-left: 160px;
+
+}
+
+.card-review .user {
+  position: absolute;
+  top: 65px;
+  left: 10px;
+}

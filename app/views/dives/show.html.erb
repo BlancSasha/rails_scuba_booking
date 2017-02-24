@@ -23,14 +23,6 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
   <div class="col-xs-12 col-md-offset-3 col-md-6">
     <hr>
   </div>
@@ -96,3 +88,35 @@
   <%= render 'shared/booking-modal' %>
 <% end %>
 
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div id="reviews">
+      <h2>
+        <%= pluralize @dive.bookings.where("review != ''").size, "Review" %>
+      </h2>
+      <% @dive.bookings.each do |booking| %>
+        <% if booking.review.present? && booking.rating.present? %>
+          <div class=<%= "card-review review#{booking.id}" %>>
+            <%= cl_image_tag booking.user.photo.path, :crop=>"imagga_scale", :sign_url=>true, class: "avatar-large" %>
+            <div class="user">
+              <p><%= booking.user.name %></p>
+            </div>
+            <div class="content">
+              <p><%= booking.review %></p>
+            </div>
+            <div class="rating">
+              <ul class="list-inline">
+                <% booking.rating.times do  %>
+                  <li><i class="fa fa-star" style="color: yellow;"></i></li>
+                <% end %>
+                <% (5 - booking.rating).times do  %>
+                  <li><i class="fa fa-star" style="color: #CCC;"></i></li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

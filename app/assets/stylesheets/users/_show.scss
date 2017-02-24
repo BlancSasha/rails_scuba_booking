@@ -1,5 +1,5 @@
 .navbar-fixed-left {
-  width: 140px;
+  width: 90px;
   border-radius: 0;
   background-color: #1B252C;
   position: fixed;
@@ -8,17 +8,26 @@
   bottom: 0;
 }
 
+ul.nav.navbar-nav {
+  margin-top: 40px;
+}
+
 .content {
   margin-left: 200px;
-  margin-top:50px;
+  margin-top:20px;
 }
 
 
 .profil-avatar {
   border-radius: 50px;
-  width: 150px;
+  width: 100px;
 }
 
+.dive-photo {
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
 
 // height: 85%;
 //     position: relative;

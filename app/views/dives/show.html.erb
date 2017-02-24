@@ -23,14 +23,6 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
   <div class="col-xs-12 col-md-offset-3 col-md-6">
     <hr>
   </div>
@@ -96,3 +88,27 @@
   <%= render 'shared/booking-modal' %>
 <% end %>
 
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div id="reviews">
+      <h2>
+        <%= pluralize @dive.bookings.where("review != ''").size, "Review" %>
+      </h2>
+      <% @dive.bookings.each do |booking| %>
+        <% if booking.review.present? && booking.rating.present? %>
+          <div class=<%= "review#{booking.id}" %>>
+            <p><%= booking.review %></p>
+            <ul class="list-inline">
+              <% booking.rating.times do  %>
+                <li><i class="fa fa-star" style="color: yellow;"></i></li>
+              <% end %>
+              <% (5 - booking.rating).times do  %>
+                <li><i class="fa fa-star" style="color: #CCC;"></i></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

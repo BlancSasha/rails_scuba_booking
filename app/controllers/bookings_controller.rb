@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
       redirect_to user_bookings_path, notice: "Your booking has been successfully created"
     else
       @modal_open = true
-      render dive_path(@booking.dive) alert: "It didn't work"
+      render dive_path(@booking.dive), alert: "It didn't work"
     end
   end
 
@@ -30,6 +30,21 @@ class BookingsController < ApplicationController
       render user_bookings_path(current_user), alert: "Your edit didn't work"
     end
   end
+
+  # def create
+  #     # [...]
+  #     if @review.save
+  #       respond_to do |format|
+  #         format.html { redirect_to restaurant_path(@restaurant) }
+  #         format.js  # <-- will render `app/views/reviews/create.js.erb`
+  #       end
+  #     else
+  #       respond_to do |format|
+  #         format.html { render 'restaurants/show' }
+  #         format.js  # <-- idem
+  #       end
+  #     end
+  #   end
 
   def destroy
     @booking.destroy
@@ -45,7 +60,7 @@ class BookingsController < ApplicationController
   def booking_params
     params
       .require(:booking)
-      .permit(:quantity, :dive_id, :status)
+      .permit(:quantity, :dive_id, :review, :rating, :status)
     # rating ? & review ?
     # Pas pour la création et la modification
     # avant qu'ils aient fait leur plongée

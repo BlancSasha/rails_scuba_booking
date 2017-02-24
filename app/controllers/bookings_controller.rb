@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
   def booking_params
     params
       .require(:booking)
-      .permit(:quantity, :dive_id, :status)
+      .permit(:quantity, :dive_id, :status, :date)
     # rating ? & review ?
     # Pas pour la création et la modification
     # avant qu'ils aient fait leur plongée

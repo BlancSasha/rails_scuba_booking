@@ -10,6 +10,7 @@
           <li><%= link_to 'Edit', "#", data: {toggle: "modal", target: "#editBookingModal#{booking.id}"} %></li>
           <li><%= link_to booking.review.present? ? 'Edit your review' : 'Leave a review', "#", data: {toggle: "modal", target: "#reviewModal#{booking.id}"} %></li>
           <li><p><%= link_to "Cancel", user_booking_path(current_user, booking), method: :delete, data: {confirm: "Are you sure you want to cancel this dive?"} %></p></li>
+          <li><p><%= link_to "See details of the dive", dive_path(booking.dive) %></p></li>
         </ul>
         <p>Location: <%= booking.dive.location %></p>
         <p>quantity: <%= booking.quantity %> peoples</p>

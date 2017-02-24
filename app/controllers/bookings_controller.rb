@@ -8,12 +8,9 @@ class BookingsController < ApplicationController
   def show
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
+    @booking.date = Date.strptime(booking_params[:date], '%m/%d/%Y')
     @booking.user = current_user
     if @booking.save
       redirect_to user_bookings_path, notice: "Your booking has been successfully created"
@@ -46,7 +43,7 @@ class BookingsController < ApplicationController
   def booking_params
     params
       .require(:booking)
-      .permit(:quantity, :dive_id, :status)
+      .permit(:quantity, :dive_id, :status, :date)
     # rating ? & review ?
     # Pas pour la création et la modification
     # avant qu'ils aient fait leur plongée

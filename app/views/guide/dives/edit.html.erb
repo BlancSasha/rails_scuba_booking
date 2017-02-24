@@ -1,2 +1,26 @@
-<h1>Dives#edit</h1>
-<p>Find me in app/views/dives/edit.html.erb</p>
+<h1 class="text-center">Edit your dive</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="edit-form">
+        <%= simple_form_for [:guide, @dive] do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :location %>
+            <%= f.input :capacity %>
+            <%= f.input :price %>
+            <%= f.input :depth_required %>
+            <%= f.input :description %>
+            <%= f.input :photos, as: :attachinary %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Modify your dives" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

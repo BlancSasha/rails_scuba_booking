@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
       redirect_to user_bookings_path, notice: "Your booking has been successfully created"
     else
       @modal_open = true
-      render dive_path(@booking.dive) alert: "It didn't work"
+      redirect_to dive_path(@booking.dive), alert: "It didn't work"
+      # render 'dives/show', alert: "It didn't work"
     end
   end
 

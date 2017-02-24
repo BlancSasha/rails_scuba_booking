@@ -1,6 +1,6 @@
 <h1>Create a dive</h1>
 
-<%= simple_form_for @dive do |f| %>
+<%= simple_form_for [:guide, @dive] do |f| %>
   <%= f.input :location %>
   <%= f.input :capacity %>
   <%= f.input :price %>

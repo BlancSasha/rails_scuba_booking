@@ -1,47 +1,49 @@
-<div class="form form-group">
-  <%= form_tag("/dives", method: "get") do %>
-    <div class="col-xs-12 col-md-offset-2 col-md-2">
-    <%= text_field_tag(
-                       :location,
-                       nil,
-                       class: 'form-control',
-                       placeholder: 'location',
-                       value: params[:location]
-                       ) %>
-    </div>
+<div class="form-inline">
+  <div class="form form-group">
+    <%= form_tag("/dives", method: "get") do %>
+      <!-- <div class="col-xs-12 col-md-offset-2 col-md-2"> -->
+      <%= text_field_tag(
+                         :location,
+                         nil,
+                         class: 'form-control',
+                         placeholder: 'location',
+                         value: params[:location]
+                         ) %>
+      <!-- </div> -->
 
-    <div class="col-xs-12 col-md-2">
-    <%= text_field_tag(
-                       :capacity,
-                       nil,
-                       class: 'form-control',
-                       placeholder: 'capacity',
-                       value: params[:capacity]
-                       ) %>
-    </div>
+      <!-- <div class="col-xs-12 col-md-2"> -->
+      <%= text_field_tag(
+                         :capacity,
+                         nil,
+                         class: 'form-control',
+                         placeholder: 'capacity',
+                         value: params[:capacity]
+                         ) %>
+      <!-- </div> -->
 
-    <div class="col-xs-12 col-md-2">
-    <%= text_field_tag(
-                       :price,
-                       nil,
-                       class: 'form-control',
-                       placeholder: 'price',
-                       value: params[:price]
-                       ) %>
-    </div>
+      <!-- <div class="col-xs-12 col-md-2"> -->
+      <%= text_field_tag(
+                         :price,
+                         nil,
+                         class: 'form-control',
+                         placeholder: 'price',
+                         value: params[:price]
+                         ) %>
+      <!-- </div> -->
 
-    <div class="col-xs-12 col-md-2">
-    <%= text_field_tag(
-                       :max_depth,
-                       nil,
-                       class: 'form-control',
-                       placeholder: 'max depth',
-                       value: params[:max_depth]
-                       ) %>
-    </div>
+      <!-- <div class="col-xs-12 col-md-2"> -->
+      <%= text_field_tag(
+                         :max_depth,
+                         nil,
+                         class: 'form-control',
+                         placeholder: 'max depth',
+                         value: params[:max_depth]
+                         ) %>
+      <!-- </div> -->
 
-    <div class="col-xs-12 col-md-2">
-    <%= submit_tag 'search', class: 'btn btn-default' %>
-    </div>
-  <% end %>
+      <!-- <div class="col-xs-12 col-md-2"> -->
+      <%= submit_tag 'search', class: 'btn btn-default' %>
+      <!-- </div> -->
+    <% end %>
+  </div>
 </div>

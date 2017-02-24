@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.date = Date.strptime(booking_params[:date], '%m/%d/%Y')
     @booking.user = current_user
     if @booking.save
       redirect_to user_bookings_path

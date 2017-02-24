@@ -12,7 +12,7 @@
           <div class="form-inputs">
             <%= f.input :quantity, collection: (1..@dive.capacity) %>
             <div class="date">
-              <%= f.input_field :date, as: :string, :"data-dates-disabled" => @unavailability, :"data-provide" => 'datepicker', class: 'form-control' %>
+              <%= f.input_field :date, as: :string, :"data-dates-disabled" => @unavailability, :"data-provide" => 'datepicker', :"data-date-start-date" => @today, class: 'form-control' %>
             </div>
             <%= f.hidden_field :dive_id, value: @dive.id  %>
           </div>

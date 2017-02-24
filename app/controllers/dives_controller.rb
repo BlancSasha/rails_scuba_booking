@@ -36,9 +36,10 @@ class DivesController < ApplicationController
   def show
     @dive = Dive.find(params[:id])
     @unavailability = []
+    @today = Date.current.strftime('%m/%d/%Y')
     @dive.user.dives.each do |dive|
       dive.bookings.each do |booking|
-        @unavailability << booking.date.strftime('%d-%m-%Y')
+        @unavailability << booking.date.strftime('%m/%d/%Y')
       end
     end
     @booking = Booking.new

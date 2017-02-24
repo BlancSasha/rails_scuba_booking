@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>My list of Dives</h1>
+  <%= render 'shared/navbar-left' %>
 
+  <h1 class="text-center">My list of Dives</h1>
+
+  <div class="card-list-dives">
   <% @dives.each do |dive| %>
     <div class="card" style="background-color: #eae8e8;">
-    <div class="card-category"><%= dive.location %></div>
+      <div class="card-category"><%= dive.location %></div>
     <div class="card-description">
       <h2><%= dive.capacity %> <i class="fa fa-user" aria-hidden="true"></i></h2>
       <p>Depth required: <%= dive.depth_required %> meters</p>
@@ -14,6 +17,7 @@
     </div>
    </div>
   <% end %>
+  </div>
   <%= link_to "Add a Dive", new_guide_dive_path, { class: "btn btn-primary"} %>
 </div>
 

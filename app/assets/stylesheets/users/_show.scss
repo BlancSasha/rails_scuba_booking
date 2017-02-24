@@ -1,22 +1,34 @@
 .navbar-fixed-left {
-  width: 140px;
-  position: fixed;
+  width: 90px;
   border-radius: 0;
-  height: 100%;
-  background-color: #1b1f23;;
+  background-color: #1B252C;
+  position: fixed;
+  left: 0;
+  top: 54px;
+  bottom: 0;
 }
 
-.navbar-fixed-left .navbar-nav > li {
-  float: none;  /* Cancel default li float: left */
-  width: 139px;
+ul.nav.navbar-nav {
+  margin-top: 40px;
 }
 
-.navbar-fixed-left + .container {
-  padding-left: 160px;
+.content {
+  margin-left: 200px;
+  margin-top:20px;
 }
 
-/* On using dropdown menu (To right shift popuped) */
-.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-  margin-top: -50px;
-  margin-left: 140px;
+
+.profil-avatar {
+  border-radius: 50px;
+  width: 100px;
 }
+
+.dive-photo {
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+// height: 85%;
+//     position: relative;
+//     overflow-y: scroll;

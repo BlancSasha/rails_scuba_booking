@@ -27,7 +27,7 @@ class Guide::DivesController < ApplicationController
   def update
     @dive = Dive.find(params[:id])
     if @dive.update(dive_params)
-      redirect_to dive_path(@dive)
+      redirect_to guide_dives_path
     else
       render :edit
     end

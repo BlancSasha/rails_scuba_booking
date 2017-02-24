@@ -11,6 +11,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_attachment :photo
 
+  def photo_url
+    if photo.present?
+      photo.path
+    else
+      "http://placehold.it/40"
+    end
+  end
+
+
   protected
 
   def user_can_be_a_teacher

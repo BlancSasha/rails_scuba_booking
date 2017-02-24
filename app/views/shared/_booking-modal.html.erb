@@ -11,8 +11,8 @@
           <%= f.error_notification %>
           <div class="form-inputs">
             <%= f.input :quantity, collection: (1..@dive.capacity) %>
-            <div class="input-group date" id="datepicker">
-              <%= f.input_field :date, label_html: { class: 'form-control' }, input_html: { "data-dates-disabled" => @unavailability }, input_html: { "data-provide" => "datepicker" }%>
+            <div class="date">
+              <%= f.input_field :date, as: :string, :"data-dates-disabled" => @unavailability, :"data-provide" => 'datepicker', class: 'form-control' %>
             </div>
             <%= f.hidden_field :dive_id, value: @dive.id  %>
           </div>
